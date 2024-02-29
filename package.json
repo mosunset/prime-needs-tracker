@@ -9,7 +9,7 @@
         "lint": "next lint",
         "format": "prettier --write .\\src\\",
         "check": "prettier --check .\\src\\",
-        "deploy": "firebase deploy"
+        "deploy": "next build && firebase deploy"
     },
     "dependencies": {
         "firebase": "^10.8.1",
