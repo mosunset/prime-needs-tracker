@@ -33,7 +33,6 @@ export default function Home() {
                             className="w-8 h-8 rounded-full"
                             width={50}
                             height={50}
-                            // unoptimized={true}
                         />
                         <p className="text-xl font-bold">{user.name || "名無しさん"}</p>
                     </>
