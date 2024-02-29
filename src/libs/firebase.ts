@@ -1,6 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp, getApps } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+
+// google login 参考 : https://zenn.dev/jun0723/articles/46441864f6dbbd
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -21,3 +26,6 @@ if (typeof window !== "undefined" && !getApps().length) {
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
 }
+
+export const auth = getAuth();
+export const db = getFirestore();

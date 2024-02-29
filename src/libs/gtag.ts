@@ -1,4 +1,5 @@
-export const GA_TAG_ID = process.env.NODE_ENV === "production"?process.env.NEXT_PUBLIC_MEASUREMENTID || "" : "";
+export const GA_TAG_ID =
+    process.env.NODE_ENV === "production" ? process.env.NEXT_PUBLIC_MEASUREMENTID || "" : "";
 
 export const IS_GATAG = GA_TAG_ID !== "";
 

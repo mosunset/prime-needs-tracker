@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "@/style/globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics/GoogleAnalytics";
 import { Suspense } from "react";
+import { AuthProvider } from "@/context/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,13 +18,19 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="ja">
-            <head>
-                <Suspense>
-                    <GoogleAnalytics />
-                </Suspense>
-            </head>
-            <body className={inter.className}>{children}</body>
-        </html>
+        <AuthProvider>
+            <html lang="ja">
+                <head>
+                    <Suspense>
+                        <GoogleAnalytics />
+                    </Suspense>
+                </head>
+                <body className={inter.className}>
+                    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+                        {children}
+                    </main>
+                </body>
+            </html>
+        </AuthProvider>
     );
 }
