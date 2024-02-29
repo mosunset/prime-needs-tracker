@@ -2,7 +2,7 @@
 import { initializeApp, getApps } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { browserSessionPersistence, getAuth, setPersistence } from "firebase/auth";
 
 // google login 参考 : https://zenn.dev/jun0723/articles/46441864f6dbbd
 
@@ -22,10 +22,11 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-if (typeof window !== "undefined" && !getApps().length) {
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-}
+// if (typeof window !== "undefined" && !getApps().length) {
+const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
+// }
 
 export const auth = getAuth();
+setPersistence(auth, browserSessionPersistence);
 export const db = getFirestore();
