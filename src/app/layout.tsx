@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "@/style/globals.css";
+import GoogleAnalytics from "@/components/GoogleAnalytics/GoogleAnalytics";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +17,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="ja">
+            <head>
+                <Suspense>
+                    <GoogleAnalytics />
+                </Suspense>
+            </head>
             <body className={inter.className}>{children}</body>
         </html>
     );
